@@ -18,18 +18,19 @@ This dataset has two target variables that can be use to create machine learning
 We used this dataset to train a classification model for this midterm project. Based on the feature given, the model will predict whether the loan application is approved or rejected.
 
 Conda is used as virtual environment and the depedencies needed was provided in [requirement.txt](!./requirements.txt) file.
-```
+```bash
 conda create --name ml-zoomcamp
+conda activate ml-zoomcamp
 pip install -r requirements.txt
 ```
 
 We used Docker container and build an image from the [Dockerfile](!./Dockerfile)
-```
+```bash
 docker build -t midterm-project1 .
 ```
 
 Run the docker image using this command:
-```
+```bash
 docker run -it --rm -p 9696:9696 midterm-project1
 ```
 
