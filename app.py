@@ -2,17 +2,18 @@ import pickle
 
 from flask import Flask, request, jsonify
 
-model_file = 'model1.bin'
-with open(model_file, 'rb') as f_in:
+model_file = "model1.bin"
+with open(model_file, "rb") as f_in:
     model = pickle.load(f_in)
 
-dv_file = 'dv.bin'
-with open(dv_file, 'rb') as f_in:
-    dv = pickle.load(f_in)   
+dv_file = "dv.bin"
+with open(dv_file, "rb") as f_in:
+    dv = pickle.load(f_in)
 
-app = Flask('marketing')
+app = Flask("loan")
 
-@app.route('/predict', methods=['POST'])
+
+@app.route("/predict", methods=["POST"])
 def predict():
     customer = request.get_json()
 
@@ -21,12 +22,12 @@ def predict():
     loan_approval = y_pred >= 0.5
 
     result = {
-        'Probability': float(y_pred.round(3)),
-        'Loan_Approval': bool(loan_approval)
+        "Probability": float(y_pred.round(3)),
+        "Loan_Approval": bool(loan_approval),
     }
 
     return jsonify(result)
 
-if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=9696)
 
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=9696)

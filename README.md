@@ -9,7 +9,7 @@ During this midterm we have learned
 
 This project served to showcase what we have learning up to the moment.
 
-This project using a dataset from [kaggle](!https://www.kaggle.com/datasets/taweilo/loan-approval-classification-data/data).
+This project using the [Loan Approval Classification](!https://www.kaggle.com/datasets/taweilo/loan-approval-classification-data/data) dataset which can be downloaded from [kaggle](!https://www.kaggle.com/datasets/taweilo/loan-approval-classification-data/data).
 
 This dataset has two target variables that can be use to create machine learning model:
 1. Loan Status -> "0": "rejected; "1": approved can be used to train classification model.
@@ -21,4 +21,22 @@ Conda is used as virtual environment and the depedencies needed was provided in 
 ```
 conda create --name ml-zoomcamp
 pip install -r requirements.txt
+```
 
+We used Docker container and build an image from the [Dockerfile](!./Dockerfile)
+```
+docker build -t midterm-project1 .
+```
+
+Run the docker image using this command:
+```
+docker run -it --rm -p 9696:9696 midterm-project1
+```
+
+Flags explanations:
+* `--name`: give the name to the created conda environment
+* `-r`: installing pip packages listed in the requirements.txt file
+* `-t`: specifying tag name
+* `-it`: allowing access to the terminal inside Docker image
+* `--rm`: removing the image from the system after we have exited the image
+* `-p`: mapping the port `9696` in our machine to the port `9696` inside Docker image  
